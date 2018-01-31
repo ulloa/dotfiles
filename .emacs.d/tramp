@@ -1,0 +1,6 @@
+;; -*- emacs-lisp -*- <17/10/20 18:11:16 /home/sam/.emacs.d/tramp>
+;; Tramp connection history.  Don't change this file.
+;; You can delete it, forcing Tramp to reapply the checks.
+
+((["ftp" "sulloa@iris-oc.com" "ftp.iris-oc.com#21" nil nil]
+  ("started" t)))

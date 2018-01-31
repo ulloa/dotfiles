@@ -162,6 +162,7 @@ shopt -s histappend
 
 # Make prompt informative
 # See:  http://www.ukuug.org/events/linux2003/papers/bash_tips/
+
 PS1="\[\033[0;34m\][\u@\h:\w]$\[\033[0m\]"
 
 ## -----------------------
@@ -191,11 +192,16 @@ alias treeacl='tree -A -C -L 2'
 # 2.3) Text and editor commands
 alias em='emacs -nw'     # No X11 windows
 alias eqq='emacs -nw -Q' # No config and no X11
+alias emacs='emacs -nw'     # No X11 windows
 export EDITOR='emacs -nw'
 export VISUAL='emacs -nw' 
 
 # 2.4) grep options
-export GREP_OPTIONS='--color=auto'
+
+#export GREP_OPTIONS='--color=auto' # deprecated
+alias grep="grep --color=auto"
+alias fgrep="fgrep --color=auto"
+alias egrep="egrep --color=auto"
 export GREP_COLOR='1;31' # green for matches
 
 # 2.5) sort options
@@ -216,7 +222,7 @@ export NODE_DISABLE_COLORS=1
 if [ -s ~/.nvm/nvm.sh ]; then
     NVM_DIR=~/.nvm
     source ~/.nvm/nvm.sh
-    nvm use v0.10.12 &> /dev/null # silence nvm use; needed for rsync
+    nvm use v8.9.4 &> /dev/null # silence nvm use; needed for rsync
 fi
 
 ## ------------------------------
@@ -225,3 +231,16 @@ fi
 
 ## Define any user-specific variables you want here.
 source ~/.bashrc_custom
+export PATH="/usr/lib/go-1.9/bin:$PATH"
+##export ANDROID_HOME=/usr/local/android-studio
+##export ANDROID_HOME=~/Android/Sdk
+##export ANDROID_HOME=/usr/local/android-studio/platform-tools
+##export ANDROID_SDK_ROOT=~/Android/Sdk
+export PATH=${PATH}:/usr/local/android-studio/tools
+export PATH=${PATH}:/usr/local/android-studio/
+export PATH=${PATH}:~/Android/Sdk
+export PATH=${PATH}:~/Android/Sdk/tools
+##export ANDROID_SDK_ROOT=~/Android/Sdk
+##export PATH="$HOME/.rbenv/bin:$PATH"
+##eval "$(rbenv init -)"
+##export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"

@@ -12,7 +12,7 @@
 (require 'ansi-color)
 (require 'recentf)
 (require 'linum)
-(require 'smooth-scrolling)
+;;(require 'smooth-scrolling)
 (require 'whitespace)
 (require 'dired-x)
 (require 'compile)
