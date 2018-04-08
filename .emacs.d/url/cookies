@@ -1,0 +1,15 @@
+;; Emacs-W3 HTTP cookies file
+;; Automatically generated file!!! DO NOT EDIT!!!
+
+(setq url-cookie-storage
+ '(("localhost"
+  [url-cookie "connect.sid" "s%3ASIKLNJVM6k0UfkNpItg8lciLg7JRuJ2p.ejMCBmBc5Zkcib7VaoCteB0vk9ZtWs4i%2BTBJUryzXnE" "Sat, 07 Apr 2018 22:43:43 GMT" "/" "localhost" nil]
+  [url-cookie "HttpOnly" nil "Sat, 07 Apr 2018 22:43:43 GMT" "/" "localhost" nil]))
+)
+(setq url-cookie-secure-storage
+ 'nil)
+
+;; Local Variables:
+;; version-control: never
+;; no-byte-compile: t
+;; End:

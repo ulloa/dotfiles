@@ -12,6 +12,8 @@ ln -sb dotfiles/.bashrc .
 ln -sb dotfiles/.bashrc_custom .
 mv .emacs.d .emacs.d~
 ln -s dotfiles/.emacs.d .
+mv .emacs .emacs~
+ln -sb dotfiles/.emacs .
 ```
 
 See also http://github.com/startup-class/setup to install prerequisite

@@ -6,15 +6,16 @@
 (global-set-key "\C-h" 'delete-backward-char)
 (add-to-list 'load-path "~/.emacs.d/web-mode")
 (global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-x '") #'imenu-list-smart-toggle) ;; for sidebuffer
 (load "web-mode")
 (add-to-list 'auto-mode-alist '("\\.dust\\'" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.scss\\'" . web-mode))
 
 (setq-default indent-tabs-mode nil)
 ;; (electric-pair-mode 1)
-
 
 ;; ---------------------------
 ;; -- MELPA Configuration --
@@ -75,6 +76,16 @@
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)
 (setq org-log-done t)
+
+(add-hook 'org-mode-hook
+          (lambda () (imenu-add-to-menubar "Imenu")))
+
+;; -----------------
+;; -- EMACS Theme --
+;; -----------------
+(require 'apropospriate)
+(load-theme 'apropospriate-dark t)
+
 
 ;; changing default tab spacing to 2 per tab instead of 8
 ;; tab-width is for tabs
@@ -139,6 +150,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("c3e6b52caa77cb09c049d3c973798bc64b5c43cc437d449eacf35b3e776bf85c" "5a0eee1070a4fc64268f008a4c7abfda32d912118e080e18c3c865ef864d1bea" default)))
  '(magit-diff-arguments (quote ("--no-ext-diff" "--stat")))
  '(magit-log-arguments (quote ("--graph" "--color" "--decorate" "-n256")))
  '(package-selected-packages
@@ -150,3 +164,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;; (require 'multiple-cursors)
+;; (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+;; (global-set-key (kbd "C->") 'mc/mark-next-like-this)
+;; (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+;; (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
