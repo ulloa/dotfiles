@@ -3,8 +3,7 @@
 
 (setq url-cookie-storage
  '(("localhost"
-  [url-cookie "connect.sid" "s%3ASIKLNJVM6k0UfkNpItg8lciLg7JRuJ2p.ejMCBmBc5Zkcib7VaoCteB0vk9ZtWs4i%2BTBJUryzXnE" "Sat, 07 Apr 2018 22:43:43 GMT" "/" "localhost" nil]
-  [url-cookie "HttpOnly" nil "Sat, 07 Apr 2018 22:43:43 GMT" "/" "localhost" nil]))
+  [url-cookie "connect.sid" "s%3Ad-hOp3k7cN9s6dEMWRqGF4TFbUUBYXTW.fe5V1%2B1iK6UcPeC6jZM%2BWqCCLwyZct0vtFAZKVQ7KAs" "Wed, 25 Apr 2018 21:15:57 GMT" "/" "localhost" nil]))
 )
 (setq url-cookie-secure-storage
  'nil)
