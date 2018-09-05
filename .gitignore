@@ -5,4 +5,5 @@
 .emacs.d/url
 .emacs.d/auto-save-list
 .emacs.d/.smex-items
-.emcas.d/tramp
+.emacs.d/tramp
+.emacs.d/bookmarks

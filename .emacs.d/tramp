@@ -1,8 +1,0 @@
-;; -*- emacs-lisp -*- <18/02/08 18:34:22 /home/sam/.emacs.d/tramp>
-;; Tramp connection history.  Don't change this file.
-;; You can delete it, forcing Tramp to reapply the checks.
-
-((["ftp" "sulloa@iris-oc.com" "ftp.iris-oc.com#21" nil nil]
-  ("started" t))
- (["sshx" "ec2-user" "ec2-54-213-172-102.us-west-2.compute.amazonaws.com" nil nil]
-  nil))
