@@ -192,7 +192,7 @@ alias treeacl='tree -A -C -L 2'
 # 2.3) Text and editor commands
 alias em='emacs -nw'     # No X11 windows
 alias eqq='emacs -nw -Q' # No config and no X11
-alias emacs='emacs -nw'     # No X11 windows
+# alias emacs='emacs -nw'     # No X11 windows
 export EDITOR='emacs -nw'
 export VISUAL='emacs -nw' 
 

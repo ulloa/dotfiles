@@ -1,1 +1,8 @@
 .emacs.d/auto-save-list/
+.emacs.d/*~
+.emacs.d/ac-comphist.dat
+.emacs.d/elpa
+.emacs.d/url
+.emacs.d/auto-save-list
+.emacs.d/.smex-items
+.emcas.d/tramp

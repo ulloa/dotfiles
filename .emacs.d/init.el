@@ -1,32 +1,34 @@
 ;; -*- mode: emacs-lisp -*-
 ;; Simple .emacs configuration
 
-;; ---------------------
-;; -- Global Settings --
-;; ---------------------
-(add-to-list 'load-path "~/.emacs.d")
-(require 'cl)
-(require 'ido)
-(require 'ffap)
-(require 'uniquify)
-(require 'ansi-color)
-(require 'recentf)
-(require 'linum)
-;;(require 'smooth-scrolling)
-(require 'whitespace)
-(require 'dired-x)
-(require 'compile)
-(ido-mode t)
-(menu-bar-mode -1)
-(normal-erase-is-backspace-mode 1)
-(put 'downcase-region 'disabled nil)
-(put 'upcase-region 'disabled nil)
-(setq column-number-mode t)
-(setq inhibit-startup-message t)
-(setq save-abbrevs nil)
-(setq show-trailing-whitespace t)
-(setq suggest-key-bindings t)
-(setq vc-follow-symlinks t)
+(package-initialize)
+(setq package-enable-at-startup nil)
+(require 'package)
+(when (>= emacs-major-version 24)
+  ;; (add-to-list
+  ;;  'package-archives
+  ;;  '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+  (add-to-list
+   'package-archives
+   '("melpa" . "http://melpa.org/packages/") t)
+  ;; (add-to-list
+  ;;  'package-archives 
+  ;;  '("gnu" . "http://elpa.gnu.org/packages/") t)
+  ;; (add-to-list
+  ;;  'package-archives 
+  ;;  '("marmalade" . "http://marmalade-repo.org/packages/") t)
+  (package-initialize))
+
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+;; (unless (package-installed-p 'spacemacs-theme)
+;;   (package-refresh-contents)
+;;   (package-install 'spacemacs-theme))
+
+(org-babel-load-file (expand-file-name "~/.emacs.d/config.org"))
+
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -36,7 +38,7 @@
  '(default ((t (:inherit autoface-default :strike-through nil :underline nil :slant normal :weight normal :height 120 :width normal :family "monaco"))))
  '(column-marker-1 ((t (:background "red"))))
  '(diff-added ((t (:foreground "cyan"))))
- '(flymake-errline ((((class color) (background light)) (:background "Red"))))
+ '(flymake-error ((((class color) (background light)) (:background "Red"))))
  '(font-lock-comment-face ((((class color) (min-colors 8) (background light)) (:foreground "red"))))
  '(fundamental-mode-default ((t (:inherit default))))
  '(highlight ((((class color) (min-colors 8)) (:background "white" :foreground "magenta"))))
@@ -45,13 +47,12 @@
  '(region ((((class color) (min-colors 8)) (:background "white" :foreground "magenta"))))
  '(secondary-selection ((((class color) (min-colors 8)) (:background "gray" :foreground "cyan"))))
  '(show-paren-match ((((class color) (background light)) (:background "black"))))
- '(vertical-border ((t nil)))
-)
+ '(vertical-border ((t nil))))
 
 ;; ------------
 ;; -- Macros --
 ;; ------------
-(load "defuns-config.el")
+(load "~/.emacs.d/defuns-config.el")
 (fset 'align-equals "\C-[xalign-regex\C-m=\C-m")
 (global-set-key "\M-=" 'align-equals)
 (global-set-key "\C-x\C-m" 'execute-extended-command)
@@ -65,13 +66,16 @@
 (global-set-key "\M-d" 'delete-word)
 (global-set-key "\M-h" 'backward-delete-word)
 (global-set-key "\M-u" 'zap-to-char)
-
-;; ---------------------------
-;; -- JS Mode configuration --
-;; ---------------------------
-(load "js-config.el")
-(add-to-list 'load-path "~/.emacs.d/jade-mode") ;; github.com/brianc/jade-mode
-(require 'sws-mode)
-(require 'jade-mode)    
-(add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
-(add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("c3e6b52caa77cb09c049d3c973798bc64b5c43cc437d449eacf35b3e776bf85c" "5a0eee1070a4fc64268f008a4c7abfda32d912118e080e18c3c865ef864d1bea" default)))
+ '(magit-diff-arguments (quote ("--no-ext-diff" "--stat")))
+ '(magit-log-arguments (quote ("--graph" "--color" "--decorate" "-n256")))
+ '(package-selected-packages
+   (quote
+    (lorem-ipsum ac-js2 skewer-mode yasnippet xbm-life tide php-mode nodejs-repl markdown-mode js2-mode indium go-mode auto-complete))))
