@@ -1,3 +1,8 @@
+(use-package magit
+  :ensure t
+:bind (("C-x g" . magit-status)))
+;; (global-set-key (kbd "C-x g") 'magit-status)
+
 ;; ---------------------
     ;; -- Global Settings --
     ;; ---------------------
@@ -17,9 +22,7 @@
     (normal-erase-is-backspace-mode 1)
     (put 'downcase-region 'disabled nil)
     (put 'upcase-region 'disabled nil)
-
     (global-set-key "\C-h" 'delete-backward-char)
-    (global-set-key (kbd "C-x g") 'magit-status)
     (global-set-key (kbd "C-x '") #'imenu-list-smart-toggle) ;; for sidebuffer
 
     (tool-bar-mode -1)
@@ -33,6 +36,11 @@
     (setq show-trailing-whitespace t)
     (setq suggest-key-bindings t)
     (setq vc-follow-symlinks t)
+
+    (use-package julia-mode
+      :ensure t
+      :defer t
+    )
 
     (use-package ess
       :ensure t
@@ -98,8 +106,11 @@
     ;; -----------------
     ;; -- EMACS Theme --
     ;; -----------------
-    (require 'apropospriate)
-    (load-theme 'apropospriate-dark t)
+    (use-package apropospriate-theme
+      :ensure t
+      :config 
+      (load-theme 'apropospriate-dark t))
+  
 
 
     ;; changing default tab spacing to 2 per tab instead of 8

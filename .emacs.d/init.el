@@ -53,7 +53,6 @@
 ;; -- Macros --
 ;; ------------
 ;; See balajis defuns-config for some. I didn't use any of the so I took them all out
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -66,4 +65,4 @@
  '(magit-log-arguments (quote ("--graph" "--color" "--decorate" "-n256")))
  '(package-selected-packages
    (quote
-    (lorem-ipsum ac-js2 skewer-mode yasnippet xbm-life tide php-mode nodejs-repl markdown-mode js2-mode indium go-mode auto-complete))))
+    (magit lorem-ipsum ac-js2 skewer-mode yasnippet xbm-life tide php-mode nodejs-repl markdown-mode js2-mode indium go-mode auto-complete))))
