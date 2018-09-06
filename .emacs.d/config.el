@@ -3,12 +3,56 @@
 :bind (("C-x g" . magit-status)))
 ;; (global-set-key (kbd "C-x g") 'magit-status)
 
+;; ---------------------------
+    ;; -- Tide Mode --
+    ;; ---------------------------
+(use-package tide
+  :ensure t
+  :after (typescript-mode company flycheck)
+  :hook ((typescript-mode . tide-setup)
+         (typescript-mode . tide-hl-identifier-mode)
+         (before-save . tide-format-before-save)))
+
+    (defun setup-tide-mode ()
+      (interactive)
+      (tide-setup)
+      (flycheck-mode +1)
+      (setq flycheck-check-syntax-automatically '(save mode-enabled))
+      (eldoc-mode +1)
+      (tide-hl-identifier-mode +1)
+      ;; company is an optional dependency. You have to
+      ;; install it separately via package-install
+      ;; `M-x package-install [ret] company`
+      (company-mode +1))
+
+    ;; aligns annotation to the right hand side
+    (setq company-tooltip-align-annotations t)
+
+    ;; formats the buffer before saving
+    (add-hook 'before-save-hook 'tide-format-before-save)
+
+    (add-hook 'typescript-mode-hook #'setup-tide-mode)
+
+    ;; format options
+    (setq tide-format-options '(:insertSpaceAfterFunctionKeywordForAnonymousFunctions t :placeOpenBraceOnNewLineForFunctions nil))
+
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode t)
+(use-package ido-vertical-mode
+:ensure t
+:init
+(ido-vertical-mode t))
+(setq ido-vertical-define-keys 'C-n-and-C-p-only)
+
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key (kbd "C-x b") 'ido-switch-buffer)
+
 ;; ---------------------
     ;; -- Global Settings --
     ;; ---------------------
     ;; (add-to-list 'load-path "~/.emacs.d")
     (require 'cl)
-    (require 'ido)
     (require 'ffap)
     (require 'uniquify)
     (require 'ansi-color)
@@ -18,7 +62,6 @@
     (require 'whitespace)
     (require 'dired-x)
     (require 'compile)
-    (ido-mode t)
     (normal-erase-is-backspace-mode 1)
     (put 'downcase-region 'disabled nil)
     (put 'upcase-region 'disabled nil)
@@ -60,38 +103,12 @@
 
   (setq-default indent-tabs-mode nil)
 
-    ;; ---------------------------
-    ;; -- Tide Mode --
-    ;; ---------------------------
-    (defun setup-tide-mode ()
-      (interactive)
-      (tide-setup)
-      (flycheck-mode +1)
-      (setq flycheck-check-syntax-automatically '(save mode-enabled))
-      (eldoc-mode +1)
-      (tide-hl-identifier-mode +1)
-      ;; company is an optional dependency. You have to
-      ;; install it separately via package-install
-      ;; `M-x package-install [ret] company`
-      (company-mode +1))
-
-    ;; aligns annotation to the right hand side
-    (setq company-tooltip-align-annotations t)
-
-    ;; formats the buffer before saving
-    (add-hook 'before-save-hook 'tide-format-before-save)
-
-    (add-hook 'typescript-mode-hook #'setup-tide-mode)
-
-    ;; format options
-    (setq tide-format-options '(:insertSpaceAfterFunctionKeywordForAnonymousFunctions t :placeOpenBraceOnNewLineForFunctions nil))
-
-
     ;; column numbering
     (setq column-number-mode t)
 
 ;; (use-package org
 ;;   :ensure t
+
 ;;   ;; ignore org-mode from upstream and use a manually installed version
 ;;   :pin manual)
     (define-key global-map "\C-cl" 'org-store-link)
@@ -199,6 +216,12 @@
 
 
     (add-hook 'fountain-mode-hook 'olivetti-mode); enable olivetti in fountain always
+
+(use-package smex
+  :ensure t
+  :init (smex-initialize)
+  :bind
+  ("M-x" . smex))
 
 (use-package which-key
   :ensure t
