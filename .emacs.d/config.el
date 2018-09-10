@@ -4,6 +4,8 @@
 (setq display-time-format "%H:%M - %d %B %Y")
 (display-time-mode t)
 
+(show-paren-mode 1)
+
 (use-package magit
   :ensure t
 :bind (("C-x g" . magit-status)))
@@ -265,11 +267,11 @@
 
 (use-package rainbow-mode
   :ensure t
-  :init (rainbow-mode t))
+  :init (add-hook 'prog-mode-hook 'rainbow-mode))
 
 (use-package rainbow-delimiters
   :ensure t
-  :init (rainbow-delimiters-mode t))
+  :init (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
 (use-package company
   :ensure t
@@ -288,14 +290,17 @@
   :ensure t
   :init
     (projectile-mode 1))
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
 (use-package dashboard
     :ensure t
     :config
       (dashboard-setup-startup-hook)
       (setq dashboard-startup-banner 'official)
-      (setq dashboard-items '((recents  . 5)
-                              (projects . 5))) ;; requires projectile mode
+      (setq dashboard-items 
+            '((recents  . 5)
+              (projects . 5)
+              (agenda . 5)))
       (setq dashboard-banner-logo-title "Greetings"))
 
 (use-package spaceline
@@ -310,7 +315,7 @@
 
 (setq powerline-default-separator nil)
 
-(use-package mark-multiple
+(use-package multiple-cursors
   :ensure t
   :bind ("C-c q" . 'mark-next-like-this))
 
