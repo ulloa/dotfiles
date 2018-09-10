@@ -2,6 +2,7 @@
 
 (setq display-time-24hr-format t)
 (setq display-time-format "%H:%M - %d %B %Y")
+(display-time-mode t)
 
 (use-package magit
   :ensure t

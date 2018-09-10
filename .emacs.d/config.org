@@ -6,11 +6,8 @@
 #+BEGIN_SRC emacs-lisp
 (setq display-time-24hr-format t)
 (setq display-time-format "%H:%M - %d %B %Y")
+(display-time-mode t)
 #+END_SRC
-** clock
-(setq display-time-24hr-format t)
-(setq display-time-format "%H:%M - %d %B %Y")
-
 * Magit
 #+BEGIN_SRC  emacs-lisp
 (use-package magit
