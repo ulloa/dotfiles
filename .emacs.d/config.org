@@ -340,3 +340,29 @@
                               (projects . 5))) ;; requires projectile mode
       (setq dashboard-banner-logo-title "Greetings"))
 #+END_SRC
+
+* Spaceline
+#+BEGIN_SRC emacs-lisp
+(use-package spaceline
+:ensure t
+:config
+(require 'spaceline-config)
+(setq spaceline-buffer-encoding-abbrev-p nil)
+(setq spaceline-line-column-p nil)
+(setq spaceline-line-p nil)
+(setq powerline-default-separator (quote arrow))
+(spaceline-spacemacs-theme))
+
+(setq powerline-default-separator nil)
+#+END_SRC
+
+* Movement
+#+BEGIN_SRC emacs-lisp
+(use-package multiple-cursors
+  :ensure t
+  :bind ("C-c q" . 'mark-next-like-this))
+
+(use-package expand-region
+  :ensure t
+  :bind ("C-q" . er/expand-region))
+#+END_SRC

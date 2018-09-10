@@ -297,3 +297,23 @@
       (setq dashboard-items '((recents  . 5)
                               (projects . 5))) ;; requires projectile mode
       (setq dashboard-banner-logo-title "Greetings"))
+
+(use-package spaceline
+:ensure t
+:config
+(require 'spaceline-config)
+(setq spaceline-buffer-encoding-abbrev-p nil)
+(setq spaceline-line-column-p nil)
+(setq spaceline-line-p nil)
+(setq powerline-default-separator (quote arrow))
+(spaceline-spacemacs-theme))
+
+(setq powerline-default-separator nil)
+
+(use-package mark-multiple
+  :ensure t
+  :bind ("C-c q" . 'mark-next-like-this))
+
+(use-package expand-region
+  :ensure t
+  :bind ("C-q" . er/expand-region))
