@@ -1,3 +1,8 @@
+(setq ring-bell-function 'ignore)
+
+(setq display-time-24hr-format t)
+(setq display-time-format "%H:%M - %d %B %Y")
+
 (use-package magit
   :ensure t
 :bind (("C-x g" . magit-status)))
@@ -264,3 +269,30 @@
 (use-package rainbow-delimiters
   :ensure t
   :init (rainbow-delimiters-mode t))
+
+(use-package company
+  :ensure t
+  :config
+  (setq company-idle-delay 0)
+  (setq company-minimum-prefix-length 3))
+
+(with-eval-after-load 'company
+  (define-key company-active-map (kbd "M-n") nil)
+  (define-key company-active-map (kbd "M-p") nil)
+  (define-key company-active-map (kbd "C-n") #'company-select-next)
+  (define-key company-active-map (kbd "C-p") #'company-select-previous)
+  (define-key company-active-map (kbd "SPC") #'company-abort))
+
+(use-package projectile
+  :ensure t
+  :init
+    (projectile-mode 1))
+
+(use-package dashboard
+    :ensure t
+    :config
+      (dashboard-setup-startup-hook)
+      (setq dashboard-startup-banner 'official)
+      (setq dashboard-items '((recents  . 5)
+                              (projects . 5))) ;; requires projectile mode
+      (setq dashboard-banner-logo-title "Greetings"))

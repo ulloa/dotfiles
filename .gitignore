@@ -10,3 +10,5 @@
 .emacs.d/session.*
 .emacs.d/ido.last
 .emacs.d/smex-items
+.emacs.d/recentf
+.emacs.d/projectile-bookmarks.eld
