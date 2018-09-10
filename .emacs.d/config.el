@@ -45,9 +45,6 @@
 (ido-vertical-mode t))
 (setq ido-vertical-define-keys 'C-n-and-C-p-only)
 
-(global-set-key (kbd "C-x C-b") 'ibuffer)
-(global-set-key (kbd "C-x b") 'ido-switch-buffer)
-
 ;; ---------------------
 ;; -- Global Settings --
 ;; ---------------------
@@ -231,3 +228,34 @@
   :ensure t
   :init
   (which-key-mode))
+
+(defun kill-whole-word ()
+  "Kills the entire word your cursor is in. Equivalent to 'ciw' in vim."
+  (interactive)
+  (forward-char 1)
+  (backward-word)
+  (kill-word 1))
+(global-set-key (kbd "C-c w k") 'daedreth/kill-whole-word)
+
+(defun config-reload ()
+  "Reloads ~/.emacs.d/config.org at runtime"
+  (interactive)
+  (org-babel-load-file (expand-file-name "~/.emacs.d/config.org")))
+(global-set-key (kbd "C-c r") 'config-reload)
+
+(defun kill-current-buffer ()
+  "Kills the current buffer."
+  (interactive)
+  (kill-buffer (current-buffer)))
+(global-set-key (kbd "C-x k") 'kill-current-buffer)
+
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key (kbd "C-x b") 'ido-switch-buffer)
+
+(use-package rainbow-mode
+  :ensure t
+  :init (rainbow-mode t))
+
+(use-package rainbow-delimiters
+  :ensure t
+  :init (rainbow-delimiters-mode t))

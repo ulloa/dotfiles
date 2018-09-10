@@ -59,4 +59,4 @@
  '(magit-diff-arguments '("--no-ext-diff" "--stat"))
  '(magit-log-arguments '("--graph" "--color" "--decorate" "-n256"))
  '(package-selected-packages
-   '(ox-reveal smex magit lorem-ipsum ac-js2 skewer-mode yasnippet xbm-life tide php-mode nodejs-repl markdown-mode js2-mode indium go-mode auto-complete)))
+   '(rainbow-mode rainbow-delimiters lorem-ipsum ac-js2 skewer-mode yasnippet xbm-life tide php-mode nodejs-repl markdown-mode js2-mode indium go-mode auto-complete)))
