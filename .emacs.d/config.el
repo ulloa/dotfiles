@@ -290,17 +290,16 @@
   :ensure t
   :init
     (projectile-mode 1))
-(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+    (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
 (use-package dashboard
     :ensure t
     :config
       (dashboard-setup-startup-hook)
       (setq dashboard-startup-banner 'official)
-      (setq dashboard-items 
-            '((recents  . 5)
-              (projects . 5)
-              (agenda . 5)))
+      (setq dashboard-items '((recents  . 5)
+                              (projects . 5)
+                              (agenda . 5))) ;; requires projectile mode
       (setq dashboard-banner-logo-title "Greetings"))
 
 (use-package spaceline
