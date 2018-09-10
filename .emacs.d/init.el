@@ -1,9 +1,7 @@
 ;; -*- mode: emacs-lisp -*-
 ;; Simple .emacs configuration
-
-(package-initialize)
-(setq package-enable-at-startup nil)
 (require 'package)
+(setq package-enable-at-startup nil)
 (when (>= emacs-major-version 24)
   ;; (add-to-list
   ;;  'package-archives
@@ -13,11 +11,9 @@
    '("melpa" . "http://melpa.org/packages/") t)
   ;; (add-to-list
   ;;  'package-archives 
-  ;;  '("gnu" . "http://elpa.gnu.org/packages/") t)
-  ;; (add-to-list
-  ;;  'package-archives 
   ;;  '("marmalade" . "http://marmalade-repo.org/packages/") t)
-  (package-initialize))
+  )
+(unless package--initialized (package-initialize t))
 
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
@@ -59,10 +55,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
-   (quote
-    ("c3e6b52caa77cb09c049d3c973798bc64b5c43cc437d449eacf35b3e776bf85c" "5a0eee1070a4fc64268f008a4c7abfda32d912118e080e18c3c865ef864d1bea" default)))
- '(magit-diff-arguments (quote ("--no-ext-diff" "--stat")))
- '(magit-log-arguments (quote ("--graph" "--color" "--decorate" "-n256")))
+   '("c3e6b52caa77cb09c049d3c973798bc64b5c43cc437d449eacf35b3e776bf85c" "5a0eee1070a4fc64268f008a4c7abfda32d912118e080e18c3c865ef864d1bea" default))
+ '(magit-diff-arguments '("--no-ext-diff" "--stat"))
+ '(magit-log-arguments '("--graph" "--color" "--decorate" "-n256"))
  '(package-selected-packages
-   (quote
-    (smex magit lorem-ipsum ac-js2 skewer-mode yasnippet xbm-life tide php-mode nodejs-repl markdown-mode js2-mode indium go-mode auto-complete))))
+   '(ox-reveal smex magit lorem-ipsum ac-js2 skewer-mode yasnippet xbm-life tide php-mode nodejs-repl markdown-mode js2-mode indium go-mode auto-complete)))

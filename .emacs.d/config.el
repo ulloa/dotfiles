@@ -49,10 +49,10 @@
 (global-set-key (kbd "C-x b") 'ido-switch-buffer)
 
 ;; ---------------------
-    ;; -- Global Settings --
-    ;; ---------------------
-    ;; (add-to-list 'load-path "~/.emacs.d")
-    (require 'cl)
+;; -- Global Settings --
+;; ---------------------
+;; (add-to-list 'load-path "~/.emacs.d")
+(require 'cl)
     (require 'ffap)
     (require 'uniquify)
     (require 'ansi-color)
@@ -127,7 +127,7 @@
       :ensure t
       :config 
       (load-theme 'apropospriate-dark t))
-  
+
 
 
     ;; changing default tab spacing to 2 per tab instead of 8
@@ -146,7 +146,7 @@
       (setq web-mode-css-indent-offset 2)
       (setq web-mode-code-indent-offset 2)
       (set-face-attribute 'web-mode-html-tag-bracket-face nil :foreground "#98ff98")
-  
+
       )
 
     (add-hook 'web-mode-hook  'my-web-mode-hook)
@@ -162,32 +162,32 @@
 
     ;; 80 column ruler
     (setq-default header-line-format 
-		  (list " " (make-string 79 ?-) "|"))
+                  (list " " (make-string 79 ?-) "|"))
 
     ;; Nodejs repl mode
     (add-hook 'web-mode-hook
-	      (lambda ()
-		(define-key web-mode-map (kbd "C-x C-e") 'nodejs-repl-send-last-expression)
-		(define-key web-mode-map (kbd "C-c C-n") 'nodejs-repl-send-line)
-		(define-key web-mode-map (kbd "C-c C-c") 'nodejs-repl-send-region)
-		(define-key web-mode-map (kbd "C-c C-l") 'nodejs-repl-load-file)
-		(define-key web-mode-map (kbd "C-c C-z") 'nodejs-repl-switch-to-repl)))
+              (lambda ()
+                (define-key web-mode-map (kbd "C-x C-e") 'nodejs-repl-send-last-expression)
+                (define-key web-mode-map (kbd "C-c C-n") 'nodejs-repl-send-line)
+                (define-key web-mode-map (kbd "C-c C-c") 'nodejs-repl-send-region)
+                (define-key web-mode-map (kbd "C-c C-l") 'nodejs-repl-load-file)
+                (define-key web-mode-map (kbd "C-c C-z") 'nodejs-repl-switch-to-repl)))
 
     (add-hook 'js-mode-hook
-	      (lambda ()
-		(define-key js-mode-map (kbd "C-x C-e") 'nodejs-repl-send-last-expression)
-		(define-key js-mode-map (kbd "C-c C-n") 'nodejs-repl-send-line)
-		(define-key js-mode-map (kbd "C-c C-c") 'nodejs-repl-send-region)
-		(define-key js-mode-map (kbd "C-c C-l") 'nodejs-repl-load-file)
-		(define-key js-mode-map (kbd "C-c C-z") 'nodejs-repl-switch-to-repl)))
+              (lambda ()
+                (define-key js-mode-map (kbd "C-x C-e") 'nodejs-repl-send-last-expression)
+                (define-key js-mode-map (kbd "C-c C-n") 'nodejs-repl-send-line)
+                (define-key js-mode-map (kbd "C-c C-c") 'nodejs-repl-send-region)
+                (define-key js-mode-map (kbd "C-c C-l") 'nodejs-repl-load-file)
+                (define-key js-mode-map (kbd "C-c C-z") 'nodejs-repl-switch-to-repl)))
 
     (add-hook 'js2-mode-hook
-	      (lambda ()
-		(define-key js2-mode-map (kbd "C-x C-e") 'nodejs-repl-send-last-expression)
-		(define-key js2-mode-map (kbd "C-c C-n") 'nodejs-repl-send-line)
-		(define-key js2-mode-map (kbd "C-c C-c") 'nodejs-repl-send-region)
-		(define-key js2-mode-map (kbd "C-c C-l") 'nodejs-repl-load-file)
-		(define-key js2-mode-map (kbd "C-c C-z") 'nodejs-repl-switch-to-repl)))
+              (lambda ()
+                (define-key js2-mode-map (kbd "C-x C-e") 'nodejs-repl-send-last-expression)
+                (define-key js2-mode-map (kbd "C-c C-n") 'nodejs-repl-send-line)
+                (define-key js2-mode-map (kbd "C-c C-c") 'nodejs-repl-send-region)
+                (define-key js2-mode-map (kbd "C-c C-l") 'nodejs-repl-load-file)
+                (define-key js2-mode-map (kbd "C-c C-z") 'nodejs-repl-switch-to-repl)))
     (custom-set-variables
      ;; custom-set-variables was added by Custom.
      ;; If you edit it by hand, you could mess it up, so be careful.
@@ -195,12 +195,12 @@
      ;; If there is more than one, they won't work right.
      '(custom-safe-themes
        (quote
-	("c3e6b52caa77cb09c049d3c973798bc64b5c43cc437d449eacf35b3e776bf85c" "5a0eee1070a4fc64268f008a4c7abfda32d912118e080e18c3c865ef864d1bea" default)))
+        ("c3e6b52caa77cb09c049d3c973798bc64b5c43cc437d449eacf35b3e776bf85c" "5a0eee1070a4fc64268f008a4c7abfda32d912118e080e18c3c865ef864d1bea" default)))
      '(magit-diff-arguments (quote ("--no-ext-diff" "--stat")))
      '(magit-log-arguments (quote ("--graph" "--color" "--decorate" "-n256")))
      '(package-selected-packages
        (quote
-	(lorem-ipsum ac-js2 skewer-mode yasnippet xbm-life tide php-mode nodejs-repl markdown-mode js2-mode indium go-mode auto-complete))))
+        (lorem-ipsum ac-js2 skewer-mode yasnippet xbm-life tide php-mode nodejs-repl markdown-mode js2-mode indium go-mode auto-complete))))
     (custom-set-faces
      ;; custom-set-faces was added by Custom.
      ;; If you edit it by hand, you could mess it up, so be careful.
@@ -216,6 +216,10 @@
 
 
     (add-hook 'fountain-mode-hook 'olivetti-mode); enable olivetti in fountain always
+
+;; (use-package ox-reveal
+;; :ensure t)
+;; (setq org-reveal-root "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.min.js")
 
 (use-package smex
   :ensure t
