@@ -174,7 +174,7 @@
       (setq web-mode-css-indent-offset 2)
       (setq web-mode-code-indent-offset 2)
       (set-face-attribute 'web-mode-html-tag-bracket-face nil :foreground "#98ff98")
-  
+
       )
 
     (add-hook 'web-mode-hook  'my-web-mode-hook)
@@ -372,4 +372,11 @@
 (use-package expand-region
   :ensure t
   :bind ("C-q" . er/expand-region))
+#+END_SRC
+* emmet-mode
+#+BEGIN_SRC emacs-lisp
+(use-package emmet-mode
+  :ensure t
+  :init (add-hook 'web-mode-hook #'emmet-mode))
+
 #+END_SRC

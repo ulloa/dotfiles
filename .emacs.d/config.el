@@ -321,3 +321,7 @@
 (use-package expand-region
   :ensure t
   :bind ("C-q" . er/expand-region))
+
+(use-package emmet-mode
+  :ensure t
+  :init (add-hook 'web-mode-hook #'emmet-mode))
