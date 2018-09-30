@@ -14,6 +14,10 @@
   ;;  '("marmalade" . "http://marmalade-repo.org/packages/") t)
   )
 (unless package--initialized (package-initialize t))
+(when (< emacs-major-version 27)
+  (package-initialize)
+  )
+
 
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
