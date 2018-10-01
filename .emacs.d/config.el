@@ -325,3 +325,6 @@
 (use-package emmet-mode
   :ensure t
   :init (add-hook 'web-mode-hook #'emmet-mode))
+
+(use-package restclient
+  :ensure t)

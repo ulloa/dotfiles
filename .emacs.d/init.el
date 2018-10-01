@@ -63,4 +63,4 @@
  '(magit-diff-arguments '("--no-ext-diff" "--stat"))
  '(magit-log-arguments '("--graph" "--color" "--decorate" "-n256"))
  '(package-selected-packages
-   '(emmet-mode multiple-cursors spaceline dashboard company org-bullets rainbow-mode rainbow-delimiters lorem-ipsum ac-js2 skewer-mode yasnippet xbm-life tide php-mode nodejs-repl markdown-mode js2-mode indium go-mode auto-complete)))
+   '(restclient ox-reveal emmet-mode multiple-cursors spaceline dashboard company org-bullets rainbow-mode rainbow-delimiters lorem-ipsum ac-js2 skewer-mode yasnippet xbm-life tide php-mode nodejs-repl markdown-mode js2-mode indium go-mode auto-complete)))
