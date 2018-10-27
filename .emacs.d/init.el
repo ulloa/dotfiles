@@ -38,7 +38,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-;; '(default ((t (:inherit autoface-default :strike-through nil :underline nil :slant normal :weight normal :height 120 :width normal :family "monaco"))))
  '(column-marker-1 ((t (:background "red"))))
  '(diff-added ((t (:foreground "cyan"))))
  '(flymake-error ((((class color) (background light)) (:background "Red"))))
@@ -66,4 +65,4 @@
  '(magit-diff-arguments '("--no-ext-diff" "--stat"))
  '(magit-log-arguments '("--graph" "--color" "--decorate" "-n256"))
  '(package-selected-packages
-   '(restclient ox-reveal emmet-mode multiple-cursors spaceline dashboard company org-bullets rainbow-mode rainbow-delimiters lorem-ipsum ac-js2 skewer-mode yasnippet xbm-life tide php-mode nodejs-repl markdown-mode js2-mode indium go-mode auto-complete)))
+   '(poly-R polymode-R restclient ox-reveal emmet-mode multiple-cursors spaceline dashboard company org-bullets rainbow-mode rainbow-delimiters lorem-ipsum ac-js2 skewer-mode yasnippet xbm-life tide php-mode nodejs-repl markdown-mode js2-mode indium go-mode auto-complete)))

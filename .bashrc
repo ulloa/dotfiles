@@ -233,3 +233,4 @@ export PATH=${PATH}:~/Android/Sdk/tools
 ##export PATH="$HOME/.rbenv/bin:$PATH"
 ##eval "$(rbenv init -)"
 ##export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+alias R='R --no-save'

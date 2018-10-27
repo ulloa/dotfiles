@@ -328,3 +328,13 @@
 
 (use-package restclient
   :ensure t)
+
+(use-package poly-R
+  :ensure t)
+(use-package polymode
+    :mode
+    (("\\.Rmd" . poly-markdown+r-mode))
+    :init
+    (autoload 'r-mode "ess-site.el" "Major mode for editing R source." t)
+    :defer t
+    )
