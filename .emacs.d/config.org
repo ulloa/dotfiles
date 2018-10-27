@@ -95,6 +95,12 @@
     (put 'upcase-region 'disabled nil)
     (global-set-key "\C-h" 'delete-backward-char)
     (global-set-key (kbd "C-x '") #'imenu-list-smart-toggle) ;; for sidebuffer
+    (use-package imenu-list
+      :ensure t
+;;      :bind (("C-'" . imenu-list-smart-toggle))
+      :config
+      (setq imenu-list-focus-after-activation t
+        imenu-list-auto-resize nil))
 
     (tool-bar-mode -1)
     (menu-bar-mode -1)
@@ -242,6 +248,11 @@
     ;; (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
     ;; (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
+    
+    (use-package fountain-mode
+      :ensure t)
+    (use-package olivetti
+      :ensure t)
 
     (add-hook 'fountain-mode-hook 'olivetti-mode); enable olivetti in fountain always
 
