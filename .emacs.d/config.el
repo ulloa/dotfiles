@@ -233,9 +233,12 @@
 
     (add-hook 'fountain-mode-hook 'olivetti-mode); enable olivetti in fountain always
 
-    ;; (use-package ox-reveal
-    ;; :ensure t)
-    ;; (setq org-reveal-root "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.min.js")
+    (use-package ox-reveal
+     :ensure t)
+    ;; must set local reveal root in each reveal file.
+     
+    (use-package "htmlize"
+     :ensure t)
 
     (use-package org-bullets
       :ensure t
@@ -349,3 +352,17 @@
     (autoload 'r-mode "ess-site.el" "Major mode for editing R source." t)
     :defer t
     )
+
+(defun func-region (start end func)
+  "run a function over the region between START and END in current buffer."
+  (save-excursion
+    (let ((text (delete-and-extract-region start end)))
+      (insert (funcall func text)))))
+(defun hex-region (start end)
+  "urlencode the region between START and END in current buffer."
+  (interactive "r")
+  (func-region start end #'url-hexify-string))
+(defun unhex-region (start end)
+  "de-urlencode the region between START and END in current buffer."
+  (interactive "r")
+  (func-region start end #'url-unhex-string))
