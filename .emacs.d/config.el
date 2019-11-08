@@ -107,6 +107,7 @@
       (".dust$"
        ".html$"
        ".js$"
+       ".jsx$"
        ".css$"
        ".scss$"
        )
@@ -338,7 +339,16 @@
 
 (use-package emmet-mode
   :ensure t
-  :init (add-hook 'web-mode-hook #'emmet-mode))
+  :init (add-hook 'web-mode-hook #'emmet-mode)
+)
+
+(defun my-emmet-mode-hook ()
+      "Hooks for emmet mode."
+      (when (string= (file-name-extension buffer-file-name) "jsx")
+      (setq-local emmet-expand-jsx-className? t)
+      )
+)
+(add-hook 'emmet-mode-hook  'my-emmet-mode-hook)
 
 (use-package restclient
   :ensure t)
