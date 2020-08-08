@@ -8,10 +8,12 @@
   ;;  '("melpa-stable" . "https://stable.melpa.org/packages/") t)
   (add-to-list
    'package-archives
-   '("melpa" . "http://melpa.org/packages/") t)
+   '("melpa" . "https://melpa.org/packages/") t)
+
   ;; (add-to-list
   ;;  'package-archives 
   ;;  '("marmalade" . "http://marmalade-repo.org/packages/") t)
+
   )
 (unless package--initialized (package-initialize t))
 (when (< emacs-major-version 27)
@@ -65,4 +67,4 @@
  '(magit-diff-arguments '("--no-ext-diff" "--stat"))
  '(magit-log-arguments '("--graph" "--color" "--decorate" "-n256"))
  '(package-selected-packages
-   '(imenu-list olivetti olivetti-mode fountain-mode poly-R polymode-R restclient ox-reveal emmet-mode multiple-cursors spaceline dashboard company org-bullets rainbow-mode rainbow-delimiters lorem-ipsum ac-js2 skewer-mode yasnippet xbm-life tide php-mode nodejs-repl markdown-mode js2-mode indium go-mode auto-complete)))
+   '(treemacs treemacs-magit imenu-list olivetti olivetti-mode fountain-mode poly-R polymode-R restclient ox-reveal emmet-mode multiple-cursors spaceline dashboard company org-bullets rainbow-mode rainbow-delimiters lorem-ipsum ac-js2 skewer-mode yasnippet xbm-life tide php-mode nodejs-repl markdown-mode js2-mode indium go-mode auto-complete)))
